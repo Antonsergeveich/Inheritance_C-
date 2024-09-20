@@ -45,6 +45,9 @@ namespace Academy
             Graduate graduate_lance = new Graduate(lance, "Helicopter_driving", "Vice_City", 95, 98, "Money");
             Console.WriteLine(graduate_lance);
             
+            Graduate graduat_lance = new Graduate("Vance", "Lance", 30, "Helicopter_driving", "Vice_City", 95, 98, "Money");
+            Console.WriteLine(graduat_lance);
+            
             Graduate bachelor_lance = new Graduate(student_lance, "Money");
             Console.WriteLine(bachelor_lance);
 
@@ -55,6 +58,10 @@ namespace Academy
             new Graduate(student_tommy, "The_leader_of_his_own_gang")
             };
             Print(group);
+            foreach(Human i in group)
+            {
+                Console.WriteLine(i);
+            }
         }
         public static void Print(Human[]group)
         {

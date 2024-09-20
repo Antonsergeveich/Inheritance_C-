@@ -32,7 +32,7 @@ namespace Academy
         }
         public override string ToString()
         {
-            return base.ToString() + $":\t{LastName} {FirstName}\t{Age} y/o";
+            return (base.ToString() + $":".PadRight(22) { LastName.PadRight(12)} {FirstName.PadRight(12)} {Age.ToString().PadRight(5)}" y/o);
         }
     }
 }
