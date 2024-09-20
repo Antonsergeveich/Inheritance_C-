@@ -10,7 +10,11 @@ namespace Academy
     {
         static void Main(string[] args)
         {
+            Human human = new Human("Vercetty", "Tommy", 30);
+            Console.WriteLine(human);
 
+            Student student = new Student("Pinkman", "Jessie", 22, "Chemistry", "WW_220", 95, 96);
+            Console.WriteLine(student);
         }
     }
 }
