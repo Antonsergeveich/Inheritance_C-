@@ -20,6 +20,12 @@ namespace Academy
             Experience = experience;
             Console.WriteLine($"TConstructor:\t{GetHashCode()}");
         }
+        public Teacher(Human human, string speciality, uint experience):base (human)
+        {
+            Speciality=speciality;
+            Experience = experience;
+            Console.WriteLine($"TCopyConstructor:\t{GetHashCode()}");
+        }
         ~Teacher()
         {
             Console.WriteLine($"TDestructor:\t{GetHashCode()}");
