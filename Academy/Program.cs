@@ -46,9 +46,22 @@ namespace Academy
             Console.WriteLine(graduate_lance);
             
             Graduate bachelor_lance = new Graduate(student_lance, "Money");
-            Console.WriteLine(graduate_lance);
+            Console.WriteLine(bachelor_lance);
 
-            
+            Human[] group = new Human[]
+            {
+            student_tommy, teacher_ricardo, graduate_lance,
+            new Teacher("Cortez", "Juan García", 50, "Military_education", 50),
+            new Graduate(student_tommy, "The_leader_of_his_own_gang")
+            };
+            Print(group);
+        }
+        public static void Print(Human[]group)
+        {
+            for (int i = 0; i < group.Length; i++) 
+            {
+                Console.WriteLine(group[i]);
+            }
         }
     }
 }
