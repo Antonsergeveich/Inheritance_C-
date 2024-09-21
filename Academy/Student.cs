@@ -58,5 +58,9 @@ namespace Academy
                 $" {Group.PadRight(GROUP_WIDTH)} {Rating.ToString().PadLeft(RATING_WIDTH)}" +
                 $" {Attendance.ToString().PadLeft(ATTENDANCE_WIDTH)}";
         }
+        public override string ToFileString()
+        {
+            return base.ToFileString()+$",{Speciality},{Group},{Rating},{Attendance}";
+        }
     }
 }

@@ -40,5 +40,9 @@ namespace Academy
                 $"{FirstName.PadRight(FIRST_NAME_WIDTH)} {Age.ToString().PadLeft(AGE_WIDTH)} y/o";
             //Метод PadRight() выравнивает вывод по левому краю на определённую ширину
         }
+        public virtual string ToFileString()
+        {
+            return base.ToString().Split('.').Last() + $":{LastName},{FirstName},{Age}";
+        }
     }
 }

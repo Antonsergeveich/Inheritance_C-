@@ -62,7 +62,7 @@ namespace Academy
             new Graduate(student_tommy, "The_leader_of_his_own_gang"),
             new Human ( "Vance", "Victor", 40)
             };
-            Print(group);
+            //Print(group);
             Save(group, "group.txt");
         }
         public static void Print(Human[] group)
@@ -81,7 +81,7 @@ namespace Academy
             StreamWriter sw = new StreamWriter(filename);
             foreach (Human i in group)
             {
-                sw.WriteLine(i);
+                sw.WriteLine(i.ToFileString()+";");
             }
             sw.Close();
             Process.Start("notepad", filename);
