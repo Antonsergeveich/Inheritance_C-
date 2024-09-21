@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Diagnostics;
 
 namespace Academy
 {
@@ -60,19 +62,30 @@ namespace Academy
             new Graduate(student_tommy, "The_leader_of_his_own_gang"),
             new Human ( "Vance", "Victor", 40)
             };
-            //Print(group);
+            Print(group);
+            Save(group, "group.txt");
+        }
+        public static void Print(Human[] group)
+        {
+            //for (int i = 0; i < group.Length; i++)
+            //{
+            //    Console.WriteLine($"{group[i]};");
+            //}
             foreach (Human i in group)
             {
                 Console.WriteLine(i);
             }
-        }
-        public static void Print(Human[] group)
-        {
-            for (int i = 0; i < group.Length; i++)
-            {
-                Console.WriteLine($"{group[i]};");
-            }
         } 
+        static void Save(Human[] group, string filename)
+        {
+            StreamWriter sw = new StreamWriter(filename);
+            foreach (Human i in group)
+            {
+                sw.WriteLine(i);
+            }
+            sw.Close();
+            Process.Start("notepad", filename);
+        }
 #endif
     }
 }
