@@ -82,7 +82,7 @@ namespace Academy
             //{
             //    Console.WriteLine($"{group[i]};");
             //}
-            foreach (Human i in group)
+            foreach (Human i in group) // DownCast - преобразование от базового типа к дочернему
             {
                 Console.WriteLine(i);
             }
@@ -92,7 +92,7 @@ namespace Academy
             StreamWriter sw = new StreamWriter(filename);
             foreach (Human i in group)
             {
-                sw.WriteLine(i.ToFileString());
+                sw.WriteLine(i.ToFileString()); // DownCast - преобразование от базового типа к дочернему
             }
             sw.Close();
             Process.Start("excel", filename);
@@ -117,7 +117,7 @@ namespace Academy
 
         //Фабрика - это патерн проектирования
         //который позволяет создавать типовые объекты если у них общий родитель;
-        static Human HumanFactory(string type)
+        static Human HumanFactory(string type) // UpCast - преобразование дочернего типа к базовому.
         {
             Human human = null;
             switch (type)
