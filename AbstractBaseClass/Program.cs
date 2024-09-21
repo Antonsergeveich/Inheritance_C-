@@ -10,7 +10,12 @@ namespace AbstractBaseClass
     {
         static void Main(string[] args)
         {
+            //Animal animal = new Animal(); //Создать экземпляр абстрактного класса не возможно
+            Wolf wolf = new Wolf();
+            wolf.Sound();
 
+            Chihuahua nedosobaka = new Chihuahua();
+            nedosobaka.Sound();
         }
     }
 }
