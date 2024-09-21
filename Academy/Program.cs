@@ -74,7 +74,7 @@ namespace Academy
             //https://ru.wikipedia.org/wiki/CSV  
 #endif
             Human[] group = Load("group.csv");
-
+            Print(group);
         }
         public static void Print(Human[] group)
         {
@@ -106,9 +106,28 @@ namespace Academy
                 string buffer = sr.ReadLine();
                 //Console.WriteLine(buffer);
                 string[] values = buffer.Split(',');
+                //Human human = HumanFactory(values[0]);
+                //human.Init(values);
+                //list.Add(human);
+                list.Add(HumanFactory(values[0]).Init(values));
             }
             sr.Close();
             return list.ToArray();
+        }
+
+        //Фабрика - это патерн проектирования
+        //который позволяет создавать типовые объекты если у них общий родитель;
+        static Human HumanFactory(string type)
+        {
+            Human human = null;
+            switch (type)
+            {
+                case "Human":     human = new Human("", "", 0);                      break;
+                case "Teacher":   human = new Teacher("", "", 0, "", 0);             break;
+                case "Student":   human = new Student("", "", 0, "", "", 0, 0);      break;
+                case "Graduate":  human = new Graduate("", "", 0, "", "", 0, 0, ""); break;
+            }
+            return human;
         }
     }
 }

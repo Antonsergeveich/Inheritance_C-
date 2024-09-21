@@ -40,5 +40,12 @@ namespace Academy
         {
             return base.ToFileString()+$",{Speciality},{Experience}";
         }
+        public override Human Init(string[] values)
+        {
+            base.Init(values);
+            Speciality = values[4];
+            Experience = Convert.ToUInt32(values[5]);
+            return this;
+        }
     }
 }

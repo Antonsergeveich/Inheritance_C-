@@ -44,5 +44,12 @@ namespace Academy
         {
             return base.ToString().Split('.').Last() + $",{LastName},{FirstName},{Age}";
         }
+        public virtual Human Init(string[] values)
+        {
+            LastName = values[1];
+            FirstName = values[2];
+            Age = Convert.ToUInt32(values[3]);
+            return this;
+        }
     }
 }
