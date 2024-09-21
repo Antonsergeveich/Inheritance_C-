@@ -1,5 +1,7 @@
 ﻿//#define INHERITANCE_1
-#define INHERITANCE_2
+//#define INHERITANCE_2
+//#define WRITE_TO_FILE
+#define READ_TO_FILE
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,15 +57,24 @@ namespace Academy
             Graduate bachelor_lance = new Graduate(student_lance, "Money");
             Console.WriteLine(bachelor_lance);
 
+#endif
+#if WRITE_TO_FILE
             Human[] group = new Human[]
-            {
+               {
             student_tommy, teacher_ricardo, graduate_lance,
             new Teacher("Cortez", "Juan García", 50, "Military_education", 50),
             new Graduate(student_tommy, "The_leader_of_his_own_gang"),
             new Human ( "Vance", "Victor", 40)
-            };
+               };
             //Print(group);
-            Save(group, "group.txt");
+            Save(group, "group.csv");
+            //CSV - Comma Separated Values
+            //(Значение разделенные запятыми).
+            //CSV - это общепринятый фармат файлов для хранения таблиц в текстовых файлах;
+            //https://ru.wikipedia.org/wiki/CSV  
+#endif
+            Human[] group = Load("group.csv");
+
         }
         public static void Print(Human[] group)
         {
@@ -75,17 +86,29 @@ namespace Academy
             {
                 Console.WriteLine(i);
             }
-        } 
+        }
         static void Save(Human[] group, string filename)
         {
             StreamWriter sw = new StreamWriter(filename);
             foreach (Human i in group)
             {
-                sw.WriteLine(i.ToFileString()+";");
+                sw.WriteLine(i.ToFileString());
             }
             sw.Close();
-            Process.Start("notepad", filename);
+            Process.Start("excel", filename);
         }
-#endif
+        static Human[] Load(string filename)
+        {
+            List<Human> list = new List<Human>();
+            StreamReader sr = new StreamReader(filename);
+            while (!sr.EndOfStream)
+            {
+                string buffer = sr.ReadLine();
+                //Console.WriteLine(buffer);
+                string[] values = buffer.Split(',');
+            }
+            sr.Close();
+            return list.ToArray();
+        }
     }
 }
