@@ -1,4 +1,5 @@
 ﻿//#define INHERITANCE_1
+#define INHERITANCE_2
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Academy
             Teacher teacher = new Teacher("White", "Walter", 50, "Chemistry", 25);
             Console.WriteLine(teacher); 
 #endif
+#if INHERITANCE_2
             Human tommy = new Human("Vercetty", "Tommy", 30);
             Console.WriteLine(tommy);
 
@@ -44,10 +46,10 @@ namespace Academy
 
             Graduate graduate_lance = new Graduate(lance, "Helicopter_driving", "Vice_City", 95, 98, "Money");
             Console.WriteLine(graduate_lance);
-            
+
             Graduate graduat_lance = new Graduate("Vance", "Lance", 30, "Helicopter_driving", "Vice_City", 95, 98, "Money");
             Console.WriteLine(graduat_lance);
-            
+
             Graduate bachelor_lance = new Graduate(student_lance, "Money");
             Console.WriteLine(bachelor_lance);
 
@@ -55,20 +57,22 @@ namespace Academy
             {
             student_tommy, teacher_ricardo, graduate_lance,
             new Teacher("Cortez", "Juan García", 50, "Military_education", 50),
-            new Graduate(student_tommy, "The_leader_of_his_own_gang")
+            new Graduate(student_tommy, "The_leader_of_his_own_gang"),
+            new Human ( "Vance", "Victor", 40)
             };
             Print(group);
-            foreach(Human i in group)
+            foreach (Human i in group)
             {
                 Console.WriteLine(i);
             }
         }
-        public static void Print(Human[]group)
+        public static void Print(Human[] group)
         {
-            for (int i = 0; i < group.Length; i++) 
+            for (int i = 0; i < group.Length; i++)
             {
-                Console.WriteLine(group[i]);
+                Console.WriteLine($"{group[i]};");
             }
-        }
+        } 
+#endif
     }
 }

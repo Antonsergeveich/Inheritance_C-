@@ -33,7 +33,9 @@ namespace Academy
             Console.WriteLine($"SConstructor:\t{GetHashCode()}");
         }
 
-        public Student(Student other) : base(other)
+        public Student(Student other) : base(other) 
+            //UpCast - приведение дочернего типа к базовому типу 
+            //DownCast - преобразование от базового типа к дочернему
         {
             this.Speciality = other.Speciality;
             this.Group = other.Group;
