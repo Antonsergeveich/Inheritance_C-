@@ -60,7 +60,7 @@ namespace Academy
             new Graduate(student_tommy, "The_leader_of_his_own_gang"),
             new Human ( "Vance", "Victor", 40)
             };
-            Print(group);
+            //Print(group);
             foreach (Human i in group)
             {
                 Console.WriteLine(i);

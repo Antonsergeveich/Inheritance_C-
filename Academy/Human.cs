@@ -9,10 +9,10 @@ namespace Academy
 {
     internal class Human
     {
-        static readonly int TYPE_WIDTH = 22;
+        static readonly int TYPE_WIDTH = 10;
         static readonly int LAST_NAME_WIDTH = 12;
         static readonly int FIRST_NAME_WIDTH = 12;
-        static readonly int AGE_WIDTH = 5;
+        static readonly int AGE_WIDTH = 3;
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public uint Age { get; set; }
@@ -36,8 +36,9 @@ namespace Academy
         }
         public override string ToString()
         {
-            return (base.ToString() + ":").PadRight(TYPE_WIDTH) + $" {LastName.PadRight(LAST_NAME_WIDTH)} " +
-                $"{FirstName.PadRight(FIRST_NAME_WIDTH)} {Age.ToString().PadRight(AGE_WIDTH)} y/o";
+            return (base.ToString().Split('.').Last() + ":").PadRight(TYPE_WIDTH) + $" {LastName.PadRight(LAST_NAME_WIDTH)} " +
+                $"{FirstName.PadRight(FIRST_NAME_WIDTH)} {Age.ToString().PadLeft(AGE_WIDTH)} y/o";
+            //Метод PadRight() выравнивает вывод по левому краю на определённую ширину
         }
     }
 }
