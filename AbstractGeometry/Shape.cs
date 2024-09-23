@@ -13,7 +13,6 @@ namespace AbstractGeometry
         uint start_y;
         uint line_width;
         public Color Color { get; set; }
-        //https://learn.microsoft.com/ru-ru/dotnet/api/system.drawing.color?view=net-7.0
         public uint StartX
         {
             get { return start_x; }
