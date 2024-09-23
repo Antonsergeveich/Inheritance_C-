@@ -37,7 +37,5 @@ namespace AbstractGeometry
         }
         public abstract double GetArea();
         public abstract double GetPerimeter();
-
-
     }
 }
