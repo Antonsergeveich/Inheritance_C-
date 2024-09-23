@@ -11,10 +11,6 @@ namespace AbstractGeometry
         public Square
             (
             double width, uint start_x, uint start_y, uint line_width, Color color
-            ) : base(
-                start_x,
-                start_y,
-                line_width,
-                color) { }
+            ) : base(start_x, start_y, line_width, color) { }
     }
 }

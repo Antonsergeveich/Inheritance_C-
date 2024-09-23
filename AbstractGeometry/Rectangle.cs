@@ -24,16 +24,11 @@ namespace AbstractGeometry
         }
         public Rectangle
             (
-            double width, double height,
             uint start_x, uint start_y, uint line_width, Color color
             ) : base(start_x, start_y, line_width, color)
         {
             Width = width;
             Height = height;
-        }
-
-        public Rectangle(uint start_x, uint start_y, uint line_width, Color color) : base(start_x, start_y, line_width, color)
-        {
         }
 
         public override double GetArea()
