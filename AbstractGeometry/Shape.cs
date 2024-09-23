@@ -3,32 +3,67 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms; 
+// Если не работает то: Solution Explorer->правой кнопкой Reference
+// ->Add Reference->галочка напротив System.Windows.Forms
 using System.Drawing;
 
 namespace AbstractGeometry
 {
     abstract class Shape //Форма
     {
-        uint start_x;
-        uint start_y;
-        uint line_width;
+        public static readonly int MIN_START_X = 100;
+        public static readonly int MAX_START_X = 1000;
+        public static readonly int MIN_START_Y = 100;
+        public static readonly int MAX_START_Y = 500;
+        public static readonly int MIN_LINE_WIDTH  = 1;
+        public static readonly int MAX_LINE_WIDTH  = 16;
+        public static readonly int MAX_SIZE  = 16;
+        public static readonly int MIN_SIZE  = 16;
+        //static readonly Color DEFAULT_COLOR = Color.White;
+        int start_x;
+        int start_y;
+        int line_width;
         public Color Color { get; set; }
-        public uint StartX
+        public int StartX
         {
-            get { return start_x; }
-            set { start_x = value; }
+            //get { return start_x; }
+            //set { start_x = value; }
+            get => start_x;
+            set
+            {
+                if (value < MIN_START_X) value = MIN_START_X;
+                if (value > MAX_START_X) value = MAX_START_X;
+                this.start_x = value;
+            }
         }
-        public uint StartY
+        public int StartY
         {
-            get { return start_y; }
-            set { start_y = value; }
+            get => start_y;
+            set => start_y =
+                value < MIN_START_Y ? MIN_START_Y :
+                value > MAX_START_Y ? MAX_START_Y :
+                value;
         }
-        public uint LineWidth
+        //public uint StartY
+        //{
+        //    get { return start_y; }
+        //    set { start_y = value; }
+        //}
+        public int LineWidth
         {
-            get { return line_width; }
-            set { line_width = value; }
+            get => line_width;
+            set => line_width = 
+                value < MIN_LINE_WIDTH? MIN_LINE_WIDTH:
+                value > MAX_LINE_WIDTH? MAX_LINE_WIDTH:
+                value;
         }
-        public Shape(uint start_x, uint start_y, uint line_width, Color color)
+        //public int LineWidth
+        //{
+        //    get { return line_width; }
+        //    set { line_width = value; }
+        //}
+        public Shape(int start_x, int start_y, int line_width, Color color)
         {
             StartX = start_x;
             StartY = start_y;
@@ -37,5 +72,7 @@ namespace AbstractGeometry
         }
         public abstract double GetArea();
         public abstract double GetPerimeter();
+        public abstract void Draw(PaintEventArgs e);
+        public abstract void Info(PaintEventArgs e);
     }
 }

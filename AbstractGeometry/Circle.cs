@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace AbstractGeometry
 {
@@ -11,10 +12,15 @@ namespace AbstractGeometry
         double radius;
         public double Radius
         {
-            get { return radius; }
-            set { radius = value; }
+            get => radius;
+            set => radius = 
+                value < MIN_SIZE ? MIN_SIZE:
+                value > MAX_SIZE ? MAX_SIZE:
+                value;
+            //get { return radius; }
+            //set { radius = value; }
         }
-        public Circle(double radius, uint start_x, uint start_y, uint line_width, Color color)
+        public Circle(double radius, int start_x, int start_y, int line_width, Color color)
             : base(start_x, start_y, line_width, color)
         {
             Radius = radius;
