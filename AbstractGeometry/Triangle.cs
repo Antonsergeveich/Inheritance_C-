@@ -15,7 +15,7 @@ namespace AbstractGeometry
             int start_x, int start_y, int line_width, Color color
             ): base(start_x, start_y, line_width, color) { }
         public abstract double GetHeight();
-        public abstract void DrawTriangle(PaintEventArgs e);
+        public abstract void DrawHeight(PaintEventArgs e);
         public override void Info(PaintEventArgs e)
         {
             Console.WriteLine($"Высота: {GetHeight()}");

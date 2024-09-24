@@ -29,13 +29,16 @@ namespace AbstractGeometry
             Square square = new Square(75, 500, 50, 3, Color.Red);
             square.Info(e);
 
-            Circle circle = new Circle(80, 700, 50, 1, Color.Yellow);
+            Circle circle = new Circle(80, 750, 50, 1, Color.Yellow);
             circle.Info(e);
+
+            EquilateralTriangle triangle = new EquilateralTriangle(100, 600, 30, 3, Color.White);
+            triangle.Info(e);
         }
         //https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.dllimportattribute?view=net-8.0
-        [DllImport("user32.dll")]
+        [DllImport("kernel32.dll")]
         public static extern IntPtr GetConsoleWindow();
-        [DllImport("user32.dll")]
+        [DllImport("kernel32.dll")]
         public static extern IntPtr GetDC(IntPtr hwnd);
     }
 }
