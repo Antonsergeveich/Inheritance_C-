@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace AbstractGeometry
 {
@@ -12,9 +14,12 @@ namespace AbstractGeometry
         public double Side
         {
             get { return side; }
-            set { side = value; }
+            set 
+            {
+                side = value; 
+            }
         }
-        public EquilateralTriangle(double side, uint start_x, uint start_y, uint line_width, Color color) :
+        public EquilateralTriangle(double side, int start_x, int start_y, int line_width, Color color) :
         base(start_x, start_y, line_width, color)
         {
             Side = side;
@@ -30,6 +35,11 @@ namespace AbstractGeometry
         public override double GetPerimeter()
         {
             return side * 3;
+        }
+        public override void Draw(PaintEventArgs e)
+        {
+            Pen pen = new Pen(Color, LineWidth); // Создаём карандаш которым будем рисовать фигуру
+            e.Graphics.DrawTriangle();
         }
     }
 }

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Drawing;
 
 namespace AbstractGeometry
 {
-    internal class Circle:Shape
+    internal class Circle : Shape
     {
         double radius;
         public double Radius
@@ -17,25 +18,25 @@ namespace AbstractGeometry
                 value < MIN_SIZE ? MIN_SIZE:
                 value > MAX_SIZE ? MAX_SIZE:
                 value;
-            //get { return radius; }
-            //set { radius = value; }
         }
         public Circle(double radius, int start_x, int start_y, int line_width, Color color)
             : base(start_x, start_y, line_width, color)
         {
             Radius = radius;
         }
-        public double GetDiameter()
+        public double GetDiameter() => radius * 2;
+        public override double GetArea() => Math.PI * Math.Pow(radius, 2);
+        public override double GetPerimeter() => 2 * Math.PI * Radius;
+        public override void Draw(PaintEventArgs e)
         {
-            return radius * 2;
+            Pen pen = new Pen(Color, LineWidth);
+            e.Graphics.DrawEllipse(pen, StartX, StartY,(int)Radius*2, (int)Radius*2); 
         }
-        public override double GetArea()
+        public override void Info(PaintEventArgs e)
         {
-            return  Math.PI * radius * radius;
-        }
-        public override double GetPerimeter()
-        {
-            return Math.PI * GetDiameter();
+            Console.WriteLine(this.GetType());
+            Console.WriteLine($"Радиус: {Radius}");
+            base.Info(e);
         }
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace AbstractGeometry
 {
@@ -31,6 +31,7 @@ namespace AbstractGeometry
                 value > MAX_SIDE? MAX_SIDE:
                 value;
         }
+        //              Constructors:
         public Rectangle
             (
             double width, double height, int start_x, int start_y, int line_width, Color color
@@ -44,15 +45,15 @@ namespace AbstractGeometry
         public override void Draw(PaintEventArgs e)
         {
             //Console.WriteLine("Здесь должен быть рисунок прямоугольника");
-            Pen pen = new Pen(Color, LineWidth);
-            e.Graphics.DrawRectangle(pen, StartX, StartY, (int)Width, (int)Height);
+            Pen pen = new Pen(Color, LineWidth); // Создаём карандаш которым будем рисовать фигуру
+            e.Graphics.DrawRectangle(pen, StartX, StartY, (float)Width, (float)Height);
         }
         public override void Info(PaintEventArgs e)
         {
             Console.WriteLine(this.GetType()+":");
             Console.WriteLine($"Ширина: {Width}");
             Console.WriteLine($"Высота: {Height}");
-            Draw(e);
+            base.Info(e);
         }
     }
 }
