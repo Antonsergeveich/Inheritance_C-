@@ -50,10 +50,15 @@ namespace AbstractGeometry
         {
             return side_a + side_b + side_c;
         }
-        public override double GetHeight()
+        public double GetMaximal()
         {
             double maximal = Math.Max(Math.Max(side_a, side_b), side_c);
-            return GetArea() * 2 / maximal;
+            return maximal;
+        }
+        public override double GetHeight()
+        {
+            
+            return GetArea() * 2 / GetMaximal();
         }
         public override double GetArea()
         {
@@ -61,7 +66,7 @@ namespace AbstractGeometry
         }
         public override void Draw(PaintEventArgs e)
         {
-            Pen pen = new Pen(Color, LineWidth); // Создаём карандаш которым будем рисовать фигуру
+            Pen pen = new Pen(Color, LineWidth); 
             Point[] points = new Point[]
             {
                 new Point(StartX, StartY + (int)GetHeight()),
@@ -74,7 +79,7 @@ namespace AbstractGeometry
         public override void DrawHeight(PaintEventArgs e)
         {
             Pen pen = new Pen(Color, 1);
-            e.Graphics.DrawLine(pen, StartX + (float)side_a / 2, StartY + (float)GetHeight(), StartX + (float)side_b / 2, (float)StartY);
+            e.Graphics.DrawLine(pen, StartX + (float)GetMaximal()/ 2, StartY + (float)GetHeight(), StartX + (float)side_b / 2, (float)StartY);
         }
     }
 }
