@@ -8,13 +8,14 @@ using System.Windows.Forms;
 
 namespace AbstractGeometry
 {
-    abstract class Triangle:Shape
+    abstract class Triangle:Shape, IHaveHeight
     {
+        public abstract double GetHeight();
+        public abstract void DrawHeight(PaintEventArgs e);
         public Triangle
             (
             int start_x, int start_y, int line_width, Color color
             ): base(start_x, start_y, line_width, color) { }
-        public abstract double GetHeight();
         public override void Info(PaintEventArgs e)
         {
             Console.WriteLine($"Высота: {GetHeight()}");
