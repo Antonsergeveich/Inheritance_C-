@@ -63,7 +63,6 @@ namespace AbstractGeometry
         {
             Pen pen = new Pen(Color, 1);
             e.Graphics.DrawLine(pen, StartX + (float)Footing / 2, StartY + (float)GetHeight(), StartX + (float)Footing / 2, (float)StartY);
-            //e.Graphics.DrawLine(pen, StartX + (float)Side/2, StartY + (float)Side, StartX + (float)Side/2, (float)(StartY + Side - GetHeight()));
         }
     }
 }

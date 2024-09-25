@@ -55,6 +55,7 @@
     <Compile Include="Shape.cs" />
     <Compile Include="Square.cs" />
     <Compile Include="Triangle.cs" />
+    <Compile Include="VersatileTriangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
