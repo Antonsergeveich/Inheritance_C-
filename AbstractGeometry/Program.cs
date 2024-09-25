@@ -34,6 +34,9 @@ namespace AbstractGeometry
 
             EquilateralTriangle triangle = new EquilateralTriangle(100, 600, 30, 3, Color.White);
             triangle.Info(e);
+
+            IsoscelesTriangle isotriangle = new IsoscelesTriangle(210, 180, 400, 250, 3, Color.Green);
+            isotriangle.Info(e);
         }
         //https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.dllimportattribute?view=net-8.0
         [DllImport("kernel32.dll")]
