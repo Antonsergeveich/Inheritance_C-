@@ -38,7 +38,6 @@ namespace AbstractGeometry
                 value > MAX_SIZE ? MAX_SIZE :
                 value;
         }
-
         public VersatileTriangle(double side_a, double side_b, double side_c, int start_x, int start_y, int line_width, Color color) :
         base(start_x, start_y, line_width, color)
         {
@@ -57,7 +56,6 @@ namespace AbstractGeometry
         }
         public override double GetHeight()
         {
-            
             return GetArea() * 2 / GetMaximal();
         }
         public override double GetArea()
