@@ -77,7 +77,7 @@ namespace AbstractGeometry
         public override void DrawHeight(PaintEventArgs e)
         {
             Pen pen = new Pen(Color, 1);
-            e.Graphics.DrawLine(pen, StartX + (float)GetMaximal()/ 2, StartY + (float)GetHeight(), StartX + (float)side_b / 2, (float)StartY);
+            e.Graphics.DrawLine(pen, StartX + (int)side_b / 2, StartY + (float)GetHeight(), StartX + (float)side_b / 2, (float)StartY);
         }
     }
 }

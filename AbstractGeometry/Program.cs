@@ -38,7 +38,7 @@ namespace AbstractGeometry
             IsoscelesTriangle isotriangle = new IsoscelesTriangle(150, 200, 400, 250, 3, Color.Green);
             isotriangle.Info(e);
 
-            VersatileTriangle VT = new VersatileTriangle(200,200,300, 620, 250, 3, Color.Gold);
+            VersatileTriangle VT = new VersatileTriangle(200,150,300, 620, 250, 3, Color.Gold);
             VT.Info(e);
         }
         //https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.dllimportattribute?view=net-8.0
